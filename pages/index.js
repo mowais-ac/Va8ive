@@ -6,6 +6,13 @@ import logoWayfair from '../public/images/logo_wayfair.jpg'
 import logoOverstock from '../public/images/logo_overstock.jpg'
 import logoSoma from '../public/images/logo_soma.jpg'
 
+const  deals = [
+  {key: 1, img:logoPriceline, title: '15% Off Sitewide + Free Shipping on $75+ Authentic Product', uses: 321 },
+  {key: 2, img:logoWayfair, title: '15% Off Sitewide', uses: 321 },
+  {key: 3, img:logoOverstock, title: '15% Off Sitewide + Free Shipping on $75+', uses: 321 },
+  {key: 4, img:logoSoma, title: '15% Off Sitewide + Free Shipping on $75+', uses: 321 },
+]
+
 export default function Home() {
   return (
     <div className={'container'}>
@@ -18,10 +25,11 @@ export default function Home() {
       <main className={'main'}>
         <h1 className={'main_title'}>Featured Coupons &amp; Deals</h1>
         <div className={'row'}>
-          <VendorVoucher img={logoPriceline} title={'15% Off Sitewide + Free Shipping on $75+ Authentic Product'}/>
-          <VendorVoucher img={logoWayfair} title={'15% Off Sitewide + Free Shipping on $75+ Authentic Product'}/>
-          <VendorVoucher img={logoOverstock} title={'15% Off Sitewide + Free Shipping on $75+ Authentic Product'}/>
-          <VendorVoucher img={logoSoma} title={'15% Off Sitewide + Free Shipping on $75+ Authentic Product'}/>
+          {deals.map(deal => {
+            return (
+              <VendorVoucher key={deal.key} img={deal.img} title={deal.title} uses={deal.uses}/>
+            )
+          })}
         </div>
       </main>
     </div>
